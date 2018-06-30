@@ -9,7 +9,7 @@ var fakeVideoData = [{
     description: 'The best cat video on the internet!',
     thumbnails: {
       default: {
-        url: 'http://www.fndvisions.org/img/cutecat.jpg',
+        url: 'https://images.huffingtonpost.com/2016-05-30-1464600256-1952992-cutecatnames-thumb.jpg',
       }
     }
   }

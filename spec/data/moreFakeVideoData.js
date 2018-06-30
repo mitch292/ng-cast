@@ -9,7 +9,7 @@ var moreFakeVideoData = [{
     description: 'Here us jab about JavaScript',
     thumbnails: {
       default: {
-        url: 'http://whiteprompt.com/wp-content/uploads/2015/09/logo-immutable.png',
+        url: 'https://secureimg.stitcher.com/customfeedimages/480x270_22611.jpg',
       }
     }
   }
