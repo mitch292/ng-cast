@@ -9,6 +9,7 @@ angular.module('video-player')
       <video-list-entry 
         ng-repeat="video in $ctrl.videos track by $index"
         video="video"
+        click="$ctrl.onClick"
       </video-list-entry>
     </ul>
     `

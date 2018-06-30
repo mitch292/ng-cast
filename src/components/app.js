@@ -1,24 +1,26 @@
 angular.module('video-player')
-  .controller('AppCtrl', function() {
-    this.currentVideo = window.exampleVideoData[0];
-    this.videos = window.exampleVideoData;
-    this.selectVideo = function(video) {
+  .controller('AppCtrl', function($scope, youTube) {
+    this.searchResults = (query) => {
+      youTube.search({
+        query: query
+      }, (results) => {
+        this.currentVideo = results.data.items[0];
+        this.videos = results.data.items;
+      });
+    };
+    this.selectVideo = (video) => {
       this.currentVideo = video;
     };
-    this.searchResults = function() {
-
-    };
+    this.currentVideo = undefined;
+    this.videos = undefined;
   })
   .component('app', {
-    bindings: {
-
-    },
     controller: 'AppCtrl',
     template: `
-  <div id="app container">
+  <div id="app container" ng-init="$ctrl.searchResults('javascript')">
     <nav class="navbar">
       <div class="col-md-6 col-md-offset-3">
-        <search><h5><em>search</em> component goes here</h5></search>
+        <search result="$ctrl.searchResults"></search>
       </div>
     </nav>
     <div class="row">
@@ -26,7 +28,7 @@ angular.module('video-player')
         <video-player video="$ctrl.currentVideo"></video-player>
       </div>
       <div class="col-md-5">
-        <video-list videos="$ctrl.videos"></video-list>
+        <video-list videos="$ctrl.videos" on-click="$ctrl.selectVideo"></video-list>
       </div>
     </div>
   </div>
