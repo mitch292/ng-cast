@@ -1,20 +1,20 @@
 angular.module('video-player')
-.controller('AppCtrl', function() {
-  this.currentVideo = window.exampleVideoData[0];
-  this.videos = window.exampleVideoData;
-  this.selectVideo = function(video) {
-    this.currentVideo = video;
-  }
-  this.searchResults = function() {
+  .controller('AppCtrl', function() {
+    this.currentVideo = window.exampleVideoData[0];
+    this.videos = window.exampleVideoData;
+    this.selectVideo = function(video) {
+      this.currentVideo = video;
+    };
+    this.searchResults = function() {
 
-  }
-})
-.component('app', {
-  bindings: {
+    };
+  })
+  .component('app', {
+    bindings: {
 
-  },
-  controller: 'AppCtrl',
-  template: `
+    },
+    controller: 'AppCtrl',
+    template: `
   <div id="app container">
     <nav class="navbar">
       <div class="col-md-6 col-md-offset-3">
@@ -26,9 +26,9 @@ angular.module('video-player')
         <video-player video="$ctrl.currentVideo"></video-player>
       </div>
       <div class="col-md-5">
-        <video-list videos="$ctrl.videos" onClick="$ctrl.selectVideo"></video-list>
+        <video-list videos="$ctrl.videos"></video-list>
       </div>
     </div>
   </div>
   `
-});
+  });
